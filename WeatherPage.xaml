@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="gorsel_programlam_odev2.WeatherPage"
+             Title="hava durumu"
+             BackgroundColor="#333">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="realref.png" Text="Refresh" Clicked="OnRefreshClicked"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout BackgroundColor="{DynamicResource BackgroundColor}">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Label Text="Hava Durumu" FontSize="20" TextColor="LightGreen" TextTransform="Uppercase" Margin="0,0,0,10" />
+        </StackLayout>
+
+        <ListView x:Name="cityListView" ItemSelected="OnCitySelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Name}" TextColor="LightGreen" FontSize="18" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <WebView x:Name="weatherWebView" VerticalOptions="FillAndExpand" IsVisible="False" />
+
+        <Button Text="sehri ekle" TextColor="LightGreen" Clicked="OnAddCityClicked" BackgroundColor="#1f1f1f" Margin="0,10,0,0" />
+    </StackLayout>
+
+</ContentPage>

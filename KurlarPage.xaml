@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="gorsel_programlam_odev2.KurlarPage"
+             Title="Kurlar">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="realref.png" Text="Refresh" Clicked="Refresh_Clicked"/>
+    
+    
+        <ToolbarItem IconImageSource="search.png" Text="Search" Clicked="Search_Clicked"/>
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout BackgroundColor="{DynamicResource BackgroundColor}" >
+        <Label Text="Döviz Kurları" FontSize="Title" HorizontalOptions="CenterAndExpand" Margin="0,20,0,10" TextColor="LightGreen"/>
+
+        <ListView x:Name="currencyListView" SeparatorVisibility="None" BackgroundColor="{DynamicResource BackgroundColor}">
+            <ListView.ItemTemplate >
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="10,5">
+                            <Label Text="{Binding Type}" FontSize="Medium" TextColor="LightGreen"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Buying}" FontSize="Medium" TextColor="LightGreen" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="{Binding Selling}" FontSize="Medium" TextColor="LightGreen" HorizontalOptions="CenterAndExpand"/>
+                                <Label Text="{Binding Situation}" FontSize="Medium" TextColor="LightGreen" HorizontalOptions="EndAndExpand"/>
+                                <Label Text="{Binding ChangeLabel}" FontSize="Medium" TextColor="LightGreen" HorizontalOptions="EndAndExpand" />
+
+                                <Image Source="{Binding ChangeImageSource}" HeightRequest="30" WidthRequest="30" />
+
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
